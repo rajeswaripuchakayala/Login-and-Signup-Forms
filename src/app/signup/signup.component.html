@@ -1,0 +1,97 @@
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Sign Up</h1>
+                    <h6>Fill out the form carefully for Registration</h6><br>
+                </div>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="exampleInputFullname" class="form-label">Full Name</label>
+                            <input type="text" formControlName="fullname" class="form-control" id="exampleInputFullname">
+                            <span class="text-danger" *ngIf="signupForm.controls ['fullname'].dirty && signupForm.hasError('required','fullname')">*Full name is required</span>
+                           
+                            <!-- *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required"> -->
+
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="exampleInputQualification" class="form-label">Qualification</label>
+                                <input type="text" formControlName="qualification" class="form-control" id="exampleInputQualification">
+                                <span class="text-danger" *ngIf="signupForm.controls ['qualification'].dirty && signupForm.hasError('required','qualification')">*Qualification is required</span>
+                            </div>
+                            <div class="col">
+                                <label for="exampleInputPassyear" class="form-label">Year of Passed Out</label>
+                                <select class="form-select" id="exampleInputPassyear">
+                                    <option value="blank"></option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                </select>
+                                <span class="text-danger" *ngIf="signupForm.controls ['passedout'].dirty && signupForm.hasError('required','passedout')">*Year of passed out is required</span>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="row">
+                            <div class="col">
+                                <label for="exampleInputMobile" class="form-label">Mobile Number</label>
+                                <input type="text" formControlName="mobilenumber" class="form-control" id="exampleInputMobile">
+                                <span class="text-danger" *ngIf="signupForm.controls ['mobilenumber'].dirty && signupForm.hasError('required','mobilenumber')">*Mobile number is required</span>
+                            </div>
+                            <div class="col">
+                                <label for="exampleInputGender" class="form-label">Gender</label>
+                                <select class="form-select" id="exampleInputGender">
+                                    <option value="blank"></option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                </select>
+                                <span class="text-danger" *ngIf="signupForm.controls ['gender'].dirty && signupForm.hasError('required','gender')">*Gender is required</span>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <span class="text-danger" *ngIf="signupForm.controls ['email'].dirty && signupForm.hasError('required','email')">*Email is required</span>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+                                <span class="text-danger" *ngIf="signupForm.controls ['password'].dirty && signupForm.hasError('required','password')">*Password is required</span>
+                            </div>
+                            <div class="col">
+                                <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                                <input type="password" formControlName="confirmpassword" class="form-control" id="exampleInputPassword2">
+                                <span class="text-danger" *ngIf="signupForm.controls ['confirmpassword'].dirty && signupForm.hasError('required','confirmpassword')">*Confirm password is required</span>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="row">
+                            <div class="col">
+                                <label for="exampleInputCategory" class="form-label">Category Type </label>
+                                <select class="form-select" id="category">
+                                    <option value="blank"></option>
+                                    <option value="finance">Finance</option>
+                                    <option value="technical">Technical</option>
+                                    <option value="opel">Functional</option>
+                                </select>
+                                <span class="text-danger" *ngIf="signupForm.controls ['categorytype'].dirty && signupForm.hasError('required','categorytype')">*Category type is required</span>
+                            </div>
+                            <div class="col">
+                                <label for="exampleInputresume" class="form-label">Upload Resume</label>
+                                <input type="file" class="form-control" id="exampleInputresume">
+                                <span class="text-danger" *ngIf="signupForm.controls ['resume'].dirty && signupForm.hasError('required','resume')">*Resume is required</span>
+                            </div>
+                        </div><br>
+                        <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary">Sign Up</button>
+                      </form>
+                <a style="color:rgb(126, 195, 68); margin-top:10px"  routerLink="/login">Already have registered? Click to Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
